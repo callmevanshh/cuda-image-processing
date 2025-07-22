@@ -1,55 +1,73 @@
-Image Processing with OpenCV
-This project performs image processing by converting images to grayscale and applying Canny edge detection. It is part of the CUDA at Scale assignment, demonstrating how a batch of TIFF images can be processed using OpenCV on CPU (with optional GPU acceleration if available).
+📸 Image Processing with OpenCV
+This project performs image processing by converting TIFF images to grayscale and applying Canny edge detection. It is part of the CUDA at Scale assignment, demonstrating how a batch of images can be processed using OpenCV on the CPU, with optional GPU acceleration if available.
 
-Features
-Batch processing of TIFF images
+✅ Features
+📁 Batch processing of .tif / .tiff images
 
-Grayscale conversion
+🎨 Grayscale conversion
 
-Canny edge detection
+⚡ Canny edge detection
 
-Automatic output saving
+💾 Automatic output saving
 
-CUDA device check using OpenCV
+🚀 CUDA device detection (via OpenCV)
 
-How to Run
-Install the required dependencies:
+🚀 How to Run
+Install dependencies:
 
 bash
 Copy
 Edit
 pip install -r requirements.txt
-Place all .tif or .tiff images inside the input_images/ folder.
+Place images:
+Copy your input TIFF images into the input_images/ folder.
 
-Run the processing script:
+Run the script:
 
 bash
 Copy
 Edit
 python process_images.py
-The processed grayscale and edge-detected images will be saved to the output_images/ folder.
+Processed grayscale and edge-detected images will be saved to the output_images/ folder.
 
-Folder Structure
-process_images.py: Main Python script that performs the processing
+📁 Folder Structure
+graphql
+Copy
+Edit
+.
+├── process_images.py       # Main Python script
+├── requirements.txt        # Python dependencies
+├── input_images/           # Input TIFF images (you add them)
+├── output_images/          # Output results (auto-generated)
+└── README.md               # This documentation
+Note: input_images/ and output_images/ contain .keep files to preserve folder structure.
 
-requirements.txt: Python package requirements
+⚙️ Command-Line Support
+You can optionally run with arguments:
 
-input_images/: Folder containing input TIFF images
+bash
+Copy
+Edit
+python process_images.py --input_dir input_images --output_dir output_images
+💻 CUDA Acceleration
+The script checks for a CUDA-enabled GPU via OpenCV.
 
-output_images/: Folder where processed images are saved
-
-README.md: Project documentation (this file)
-
-CUDA Acceleration
-The script checks if a CUDA-enabled GPU is available via OpenCV. If a GPU is found, it will print a message; otherwise, it defaults to CPU processing.
-
-Example output:
+Sample output:
 
 csharp
 Copy
 Edit
 CUDA device count: 0
 Running on CPU using OpenCV.
-Dataset Used
-Images from the USC-SIPI Miscellaneous dataset (39 TIFF images)
+If GPU is available, OpenCV’s CUDA backend may be used (if built with CUDA support).
+
+🖼 Dataset Used
+You can test with the USC-SIPI Miscellaneous Dataset which provides 39 .tiff images.
+
+📌 Notes
+This repo intentionally does not include actual TIFF files.
+
+You must provide your own input images in input_images/.
+
+Works on both CPU and GPU-enabled systems (if OpenCV is built with CUDA).
 
